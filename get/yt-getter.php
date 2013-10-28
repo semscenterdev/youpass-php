@@ -1,5 +1,5 @@
 <?php
-	class YouTube{
+	class YouPass{
 		public  $dir ="C:\wamp\www\getter\downloads";
 		private $info = array();
 		private $content; 
