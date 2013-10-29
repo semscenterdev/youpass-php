@@ -3,7 +3,17 @@ YouPass
 
 Found [here](http://semscenter.com/getter/youpass), YouPass is a little PHP program I made to bypass the Lightspeed blocking systems SMUSD has and embeds a video.
 
-Class usage
+YouPass Implementation
+===
+
+To implemement YouPass into your site, you must have PHP enabled. No YouTube APIs are required for this program.
+First, include the class.
+
+```php
+include_once('path_to_yt-getter.php');
+```
+
+Function usage
 =====
 
 get()
