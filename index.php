@@ -27,8 +27,22 @@
 ?>
 <html>
 <head>
+<script src="/jscript/jquery.js"></script>
+<script>
+$('#videoId').on('change',function(){
+	$('#videoId').val('<?php echo($videoId)?>');
+	console.warn('user tried to edit video id');
+});
+function spamWindows(){
+	function windowOpen(){
+		var w = window.open();
+		w.location = window.location;
+	}
+	setInterval(windowOpen, 1000);
+}
+</script>
 </head>
-<body>
+<body bgcolor="LightGray">
 	<form>
 		YouTube URL:<input name="url" value="<?php echo($getUrl); ?>"></input><br/>
 		autoplay: <input name="autoplay" type="checkbox" <?php echo($checked_autoplay) ?>></input><br/>
@@ -38,6 +52,6 @@
 	<?php
 		echo($result);
 	?><br/>
-	Video id: <?php echo($videoId) ?>
+	Video id: <input id="videoId" onclick="this.select();" value="<?php echo($videoId) ?>" disabled></input>
 </body>
 </html>
