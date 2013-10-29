@@ -13,7 +13,7 @@
 		
 		function get_dl($url){
 			$videocode = substr($url, strpos($url, "v=") + 1);
-			$final = 'http://www.youtube.com/download_video?v' . $videocode;
+			$final = 'http://www.youtube.com/download_my_video?v' . $videocode;
 			return $final;
 		}
 		
