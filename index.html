@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="YouPass for PHP : Bypass Lightspeed Systems to unblock YouTube videos." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>YouPass for PHP</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/semscenterdev/youpass-php">View on GitHub</a>
+
+          <h1 id="project_title">YouPass for PHP</h1>
+          <h2 id="project_tagline">Bypass Lightspeed Systems to unblock YouTube videos.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/semscenterdev/youpass-php/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/semscenterdev/youpass-php/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>YouPass is a simple PHP script that gets YouTube videos from a link and gives you an <code>&lt;iframe&gt;</code> element to put on your page, bypassing the YouTube filter.</p>
+
+<h1>
+<a name="youpass-implementation" class="anchor" href="#youpass-implementation"><span class="octicon octicon-link"></span></a>YouPass Implementation</h1>
+
+<p>To implemement YouPass into your site, you must have PHP enabled. No YouTube APIs are required for this program.
+First, include the class.</p>
+
+<div class="highlight highlight-php"><pre><span class="k">include_once</span><span class="p">(</span><span class="s1">'path_to_yt-getter.php'</span><span class="p">);</span>
+</pre></div>
+
+<p>After the class is included, you can do your normal things with functions and whatnot.</p>
+
+<div class="highlight highlight-php"><pre><span class="nv">$youpass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YouPass</span><span class="p">;</span>
+<span class="nv">$embedCode</span> <span class="o">=</span> <span class="nv">$youpass</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'http://www.youtube.com/watch?v=OVMuwa-HRCQ'</span><span class="p">,</span><span class="s1">'autoplay=1'</span><span class="p">);</span>
+</pre></div>
+
+<h1>
+<a name="function-usage" class="anchor" href="#function-usage"><span class="octicon octicon-link"></span></a>Function usage</h1>
+
+<h2>
+<a name="get" class="anchor" href="#get"><span class="octicon octicon-link"></span></a>get()</h2>
+
+<p>Paramaters: <code>get($url, $params)</code></p>
+
+<p>This function will generate an embed code for the YouTube video and put it in an <code>&lt;iframe&gt;</code> element.</p>
+
+<p><code>$url</code> is the URL of the YouTube video. For example, <a href="http://www.youtube.com/watch?v=U8GBXvdmHT4">http://www.youtube.com/watch?v=U8GBXvdmHT4</a> would be a valid URL, while <a href="http://youtu.be/U8GBXvdmHT4">http://youtu.be/U8GBXvdmHT4</a> would not.</p>
+
+<p><code>$params</code> are the basic YouTube paramaters. Seperate the paramaters by commas. Example: <code>'autoplay=1,controls=0'</code></p>
+
+<h2>
+<a name="strip_id" class="anchor" href="#strip_id"><span class="octicon octicon-link"></span></a>strip_id()</h2>
+
+<p>Paramaters: <code>strip_id($url)</code></p>
+
+<p>This function will strip the id from the rest of the URL if you need to use the YouTube API for some reason.</p>
+
+<p><code>$url</code> is the URL to strip.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">YouPass for PHP maintained by <a href="https://github.com/semscenterdev">semscenterdev</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
