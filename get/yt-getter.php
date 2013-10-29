@@ -1,17 +1,13 @@
 <?php
 	class YouPass{
-		public  $dir ="C:\wamp\www\getter\downloads";
-		private $info = array();
-		private $content; 
-		private $urL; 
-		private $file_name;
-		function get($url){
+		function get($url, $params){
 			if(strpos($url, 'youtube.com') == false){
 				return 'Invalid YouTube URL.';
 			}else{
 				$a = str_replace("watch?v=","v/",$url);
-				$b = '<iframe width="640" height="360" frameborder="0" src="' . $a . '?autoplay=1"></iframe>';
-				return $b;
+				$b = '<iframe width="640" height="360" frameborder="0" src="' . $a . '&' . $params . '"></iframe>';
+				$c = str_replace(",","&",$b);
+				return $c;
 			}
 		}
 		
@@ -22,8 +18,12 @@
 		}
 		
 		function strip_id($url){
-			$videocode = substr($url, strpos($url, "v=") + 1);
-			return $videocode;
+			if(strpos($url, 'youtube.com') == false){
+				return 'Invalid YouTube URL.';
+			}else{
+				$videocode = substr($url, strpos($url, "v=") + 2);
+				return $videocode;
+			}
 		}
 	}
 ?>

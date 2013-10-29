@@ -2,8 +2,13 @@
 	session_start();
 	require_once('C:\wamp\www\getter\youpass\get\yt-getter.php');
 	$getter = new YouPass;
-	$result = $getter->get($_GET['url']); //use $result when we want to get the iframe code
-	$download = $getter->download($_GET['url']);
+	if(!isset($_GET['url'])){
+		$getUrl = null;
+	}else{
+		$getUrl = $_GET['url'];
+	}
+	$result = $getter->get($getUrl, 'autoplay=1,controls=0'); //use $result when we want to get the iframe code
+	$videoId = $getter->strip_id($getUrl);
 	if($result == 'Invalid YouTube URL.'){
 		$url = '';
 	}else{
@@ -15,11 +20,11 @@
 </head>
 <body>
 	<form>
-		YouTube URL:<input name="url" value="<?php echo($_GET['url']); ?>"></input>
+		YouTube URL:<input name="url" value="<?php echo($getUrl); ?>"></input>
 	</form>
 	<?php
 		echo($result);
 	?><br/>
-	<a href="<?php echo($download); ?>">Download video</a>
+	Video id: <?php echo($videoId) ?>
 </body>
 </html>
