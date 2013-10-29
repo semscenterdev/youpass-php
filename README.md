@@ -13,6 +13,13 @@ First, include the class.
 include_once('path_to_yt-getter.php');
 ```
 
+After the class is included, you can do your normal things with functions and whatnot.
+
+```php
+$youpass = new YouPass;
+$embedCode = $youpass->get('http://www.youtube.com/watch?v=OVMuwa-HRCQ','autoplay=1');
+```
+
 Function usage
 =====
 
