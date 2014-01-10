@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	error_reporting(0);
-	require_once('C:\wamp\www\getter\youpass\get\yt-getter.php');
+	require_once('C:\wamp2\www\youpass-php\get\yt-getter.php');
 	$getter = new YouPass;
 	if(!isset($_GET['url'])){
 		$getUrl = null;
